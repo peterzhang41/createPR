@@ -17,7 +17,7 @@ a set of bitbucket server cli tools
 
 ### Global Installation
   * Download sample-cpr-config.yaml from release, and modify it according to your own config
-  * Download cpr and rename file to cpr.exe (windows) or cpr （linux）
+  * Download cpr_XXX_XXX binary file and rename to cpr.exe (windows) or cpr （linux）
   * Windows: 
     move binary file to a folder which the path needs to be added or has been in PATH variable
     https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
