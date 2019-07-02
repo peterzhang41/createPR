@@ -4,7 +4,7 @@ a place for bitbucket server cli tools
 ## cpr - create pull request
 
 ### Release
-    https://github.com/peterzhang41/bitbucket-server-go-cli-tools/releases
+    [cpr v0.1-alpha](https://github.com/peterzhang41/bitbucket-server-go-cli-tools/releases)
     
 ### Compile
    ~~~
