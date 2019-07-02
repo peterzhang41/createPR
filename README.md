@@ -74,15 +74,15 @@ a set of bitbucket server cli tools
 ### Flags
     (--description and --debug is not configurable in yaml file, CLI only )  
    ~~~
-      --load value                    load .yaml config file from the path or from environment variable [$CPR_CONFIG_FILE_PATH]
-      --username value                Bitbucket account username
-      --password value                Bitbucket account password
+      --load path                     load .yaml config file from the path or from environment variable [$CPR_CONFIG_FILE_PATH]
+      --username firstName.lastName   Bitbucket account username
+      --password '#@#$%***'           Bitbucket account password
       --url value                     bitbucket server url (default: "https://bitbucket.simprocloud.com")
       --destBranch value              PR destination branch
       --title value                   PR title, branch name will be used if the title is not given
       --description value             PR description, could be empty
-      --debug                         turn debug on, will turn on all arguments and flags value
-      --reviewers firstName.lastName  PR reviewers firstName.lastName
+      --debug                         turn debug on will print out all arguments
+      --reviewers firstName.lastName  PR reviewers firstName.lastName, it could be multiple
       --help, -h                      show help
       --version, -v                   print the version
   ~~~
