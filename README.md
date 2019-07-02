@@ -1,11 +1,11 @@
 # bitbucket-server-cli-tools
 a place for bitbucket server cli tools
 
-##cpr - create pull request
+## cpr - create pull request
 
 
  
- ###Example: 
+ ### Example: 
  
   * Set global environment variable pointing to the cpr config file path (Example in Linux ~/.bashrc)
      ~~~
@@ -21,10 +21,13 @@ a place for bitbucket server cli tools
       ~~~
   * Or, setup|modify flags values
     ~~~
-    $ cpr --username fristname.lastname --password '###' --url 'https://bitbucket.example.com' --destBranch 'release/1.2.9' --title 'This is a sample title' --description 'Please check on Line:100' --debug --reviewer firstname.lastname --reviewer firstname.lastname
+    $ cpr --username fristname.lastname --password '###'\
+          --url 'https://bitbucket.example.com' --destBranch 'release/1.2.9'\
+          --title 'This is a sample title' --description 'Please check on Line:100'\
+          --debug --reviewer firstname.lastname --reviewer firstname.lastname
     ~~~
     
-  ###Precedence
+  ### Precedence
   The precedence for flag value sources is as follows (highest to lowest):
   0. Command line flag value from user
   1. Environment variable (if specified)
@@ -32,7 +35,7 @@ a place for bitbucket server cli tools
   3. Default defined on the flag
   
   
-###Flags
+### Flags
    ~~~
       --load value                    load .yaml config file from the path or from environment variable [$CPR_CONFIG_FILE_PATH]
       --username value                Bitbucket account username
@@ -45,4 +48,4 @@ a place for bitbucket server cli tools
       --reviewers firstName.lastName  PR reviewers firstName.lastName
       --help, -h                      show help
       --version, -v                   print the version
-~~~
+  ~~~
