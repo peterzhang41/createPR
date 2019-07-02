@@ -65,10 +65,10 @@ a set of bitbucket server cli tools
     
   ### Precedence
   The precedence for flag value sources is as follows (highest to lowest):  
-  0. Command line flag value from user
-  1. Environment variable (if specified)
-  2. Configuration file (if specified)
-  3. Default defined on the flag
+  4. Command line flag value from user  
+  3. Environment variable (if specified)  
+  2. Configuration file (if specified)  
+  1. Default defined on the flag  
   
   
 ### Flags
