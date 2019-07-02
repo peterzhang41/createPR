@@ -1,5 +1,5 @@
-# bitbucket-server-cli-tools
-a set of bitbucket server cli tools
+# Bitbucket-Server-Cli-Tools
+a collection of bitbucket server cli tools
 
 ## CPR - a tool for creating pull request in Bitbucket server
 
