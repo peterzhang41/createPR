@@ -19,38 +19,48 @@ a set of bitbucket server cli tools
   * Download sample-cpr-config.yaml from release, and modify it according to your own config
   * Download cpr_XXX_XXX binary file and rename to cpr.exe (windows) or cpr （linux）
   * Windows: 
-    move binary file to a folder which the path needs to be added or has been in PATH variable
-    https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
-  * Linux: 
+    move binary file to a folder which the path needs to be added or has been in PATH variable  
+    https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/  
+    (optional)  
+    you could create a new variable CPR_CONFIG_FILE_PATH and value is the config file path
+  * Linux:
+    copy binary to bin folder
     ~~~
     cp ~/Downloads/cpr /usr/local/bin
     ~~~
- 
- ### Example: 
- 
-  * Set global environment variable pointing to the cpr config file path (Example is Linux in ~/.bashrc)
+    add one more line in  ~/.bashrc (modify other init file if you are not using bash)
      ~~~
      export CPR_CONFIG_FILE_PATH="/home/cpr_config.yaml"
      ~~~
-    (For windows user, same as the PATH variable, you need to create a new variable CPR_CONFIG_FILE_PATH and value is the config file path)
-    After that, you can directly execute it , cpr will check $CPR_CONFIG_FILE_PATH
+    save and execute below, or relaunch terminal
+     ~~~
+     source ~/.bashrc
+     ~~~
+  * Check success
+     ~~~
+     cpr -h
+     ~~~
+ 
+ ### Example: 
+ 
+  * you can directly execute it , cpr will check $CPR_CONFIG_FILE_PATH
     ~~~
-      $ cpr
+      cpr
     ~~~
   * Or, Reading setting from load flag and execute it
       ~~~
-        $ cpr --load '/home/cpr_config.yaml'
+      cpr --load '/home/cpr_config.yaml'
       ~~~
   * Or, setup|modify flags values in CLI
     ~~~
-    $ cpr --username fristname.lastname --password '###'\
+    cpr --username fristname.lastname --password '###'\
           --url 'https://bitbucket.example.com' --destBranch 'release/1.2.9'\
           --title 'This is a sample title' --description 'Please check on Line:100'\
           --debug --reviewer firstname.lastname --reviewer firstname.lastname
     ~~~
   * An example below created a PR to 'release/1.2.9' (use single quote if has special character), and used all other default settings in yaml file if it has been setup correctly.  
     ~~~
-    $ cpr --destBranch 'release/1.2.9' --description 'Please check on Line:100'
+    cpr --destBranch 'release/1.2.9' --description 'Please check on Line:100'
     ~~~
     
   ### Precedence
