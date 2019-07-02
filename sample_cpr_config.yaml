@@ -1,0 +1,5 @@
+username: "firstname.lastname"
+password: '######'
+url: 'https://bitbucket.######.com'
+destBranch: 'develop'
+reviewers: ['firstName.lastName','firstName.lastName']
