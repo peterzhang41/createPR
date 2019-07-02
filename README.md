@@ -1,12 +1,12 @@
 # bitbucket-server-cli-tools
-a place for bitbucket server cli tools
+a set of bitbucket server cli tools
 
-## cpr - create pull request
+## CPR - a tool for creating pull request in Bitbucket server
 
 ### Release
 [cpr v0.1-alpha](https://github.com/peterzhang41/bitbucket-server-go-cli-tools/releases)
     
-### Compile
+### If you don't like the released binary file, you can compile it by yourself. Requires Go Environment
    ~~~
    go install
    ~~~
@@ -16,9 +16,10 @@ a place for bitbucket server cli tools
    ~~~
 
 ### Global Installation
-
+  * Download sample-cpr-config.yaml from release, and modify it according to your own config
+  * Download cpr and rename file to cpr.exe (windows) or cpr （linux）
   * Windows: 
-    move to or create an folder, get the path and add into PATH variable
+    move binary file to a folder which the path needs to be added or has been in PATH variable
     https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
   * Linux: 
     ~~~
@@ -45,6 +46,11 @@ a place for bitbucket server cli tools
           --url 'https://bitbucket.example.com' --destBranch 'release/1.2.9'\
           --title 'This is a sample title' --description 'Please check on Line:100'\
           --debug --reviewer firstname.lastname --reviewer firstname.lastname
+    ~~~
+  * the command below will create a PR to 'release/1.2.9' instead (use single quote if has special character), and keep all other default settings in yaml file if it has been setup    
+    ~~~
+    $ cpr --destBranch 'release/1.2.9'\
+          --title 'This is a sample title' --description 'Please check on Line:100'\
     ~~~
     
   ### Precedence
