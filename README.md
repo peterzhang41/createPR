@@ -18,12 +18,12 @@ a set of bitbucket server cli tools
 ### Global Installation
   * Download sample-cpr-config.yaml from release, and modify it according to your own config
   * Download cpr_XXX_XXX binary file and rename to cpr.exe (windows) or cpr （linux）
-  * Windows: 
+  * Windows:  
     move binary file to a folder which the path needs to be added or has been in PATH variable  
     https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/  
     (optional)  
     you could create a new variable CPR_CONFIG_FILE_PATH and value is the config file path
-  * Linux:
+  * Linux:  
     copy binary to bin folder
     ~~~
     cp ~/Downloads/cpr /usr/local/bin
@@ -47,7 +47,7 @@ a set of bitbucket server cli tools
     ~~~
       cpr
     ~~~
-  * Or, Reading setting from load flag and execute it
+  * Or, execute it by loading settings from the path defined on the flag
       ~~~
       cpr --load '/home/cpr_config.yaml'
       ~~~
@@ -64,8 +64,7 @@ a set of bitbucket server cli tools
     ~~~
     
   ### Precedence
-  The precedence for flag value sources is as follows (highest to lowest):
-  
+  The precedence for flag value sources is as follows (highest to lowest):  
   0. Command line flag value from user
   1. Environment variable (if specified)
   2. Configuration file (if specified)
