@@ -28,11 +28,12 @@ a set of bitbucket server cli tools
  
  ### Example: 
  
-  * Set global environment variable pointing to the cpr config file path (Example in Linux ~/.bashrc, windows user, same as the linke above, create a new system variable CPR_CONFIG_FILE_PATH in Environment Variables)
+  * Set global environment variable pointing to the cpr config file path (Example is Linux in ~/.bashrc)
      ~~~
      export CPR_CONFIG_FILE_PATH="/home/cpr_config.yaml"
      ~~~
-    then directly execute it , cpr will check $CPR_CONFIG_FILE_PATH
+    (For windows user, same as the PATH variable, you need to create a new variable CPR_CONFIG_FILE_PATH and value is the config file path)
+    After that, you can directly execute it , cpr will check $CPR_CONFIG_FILE_PATH
     ~~~
       $ cpr
     ~~~
@@ -40,21 +41,21 @@ a set of bitbucket server cli tools
       ~~~
         $ cpr --load '/home/cpr_config.yaml'
       ~~~
-  * Or, setup|modify flags values
+  * Or, setup|modify flags values in CLI
     ~~~
     $ cpr --username fristname.lastname --password '###'\
           --url 'https://bitbucket.example.com' --destBranch 'release/1.2.9'\
           --title 'This is a sample title' --description 'Please check on Line:100'\
           --debug --reviewer firstname.lastname --reviewer firstname.lastname
     ~~~
-  * the command below will create a PR to 'release/1.2.9' instead (use single quote if has special character), and keep all other default settings in yaml file if it has been setup    
+  * An example below created a PR to 'release/1.2.9' (use single quote if has special character), and used all other default settings in yaml file if it has been setup correctly.  
     ~~~
-    $ cpr --destBranch 'release/1.2.9'\
-          --title 'This is a sample title' --description 'Please check on Line:100'\
+    $ cpr --destBranch 'release/1.2.9' --description 'Please check on Line:100'
     ~~~
     
   ### Precedence
   The precedence for flag value sources is as follows (highest to lowest):
+  
   0. Command line flag value from user
   1. Environment variable (if specified)
   2. Configuration file (if specified)
@@ -62,6 +63,7 @@ a set of bitbucket server cli tools
   
   
 ### Flags
+    (--description and --debug is not configurable in yaml file, CLI only )  
    ~~~
       --load value                    load .yaml config file from the path or from environment variable [$CPR_CONFIG_FILE_PATH]
       --username value                Bitbucket account username
