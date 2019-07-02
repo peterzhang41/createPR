@@ -6,7 +6,7 @@ a set of bitbucket server cli tools
 ### Release
 [cpr v0.1-alpha](https://github.com/peterzhang41/bitbucket-server-go-cli-tools/releases)
     
-#### you could compile binary file by yourself. Requires Golang Environment
+#### you could generate binary file by yourself. Requires Golang Environment
    ~~~
    go install
    ~~~
