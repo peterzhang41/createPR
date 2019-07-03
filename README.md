@@ -4,7 +4,7 @@ a collection of bitbucket server cli tools
 ## CPR - a tool for creating pull request in Bitbucket server
 
 ### Release
-[cpr v0.1-alpha](https://github.com/peterzhang41/bitbucket-server-go-cli-tools/releases)
+[cpr v1.0](https://github.com/peterzhang41/bitbucket-server-go-cli-tools/releases)
     
 #### you could generate binary file by yourself. Requires Golang Environment
   [golang.org](https://golang.org/doc)
@@ -79,7 +79,7 @@ a collection of bitbucket server cli tools
    ~~~
       --load path                     load .yaml config file from the path or from environment variable [$CPR_CONFIG_FILE_PATH]
       --username firstName.lastName   Bitbucket account username
-      --password '#@#$%***'           Bitbucket account password
+      --password '######'           Bitbucket account password
       --url value                     bitbucket server url (default: "https://bitbucket.simprocloud.com")
       --destBranch value              PR destination branch
       --title value                   PR title, branch name will be used if the title is not given
