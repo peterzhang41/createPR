@@ -24,7 +24,7 @@ func main() {
 	app.Usage = "A tool creating pull request in bitbucket"
 	app.EnableBashCompletion = true
 	app.Author = "Zehui Zhang"
-	app.Email = "peter.zhang@simpro.co"
+	app.Email = "zhangzehui41+cpr@gmail.com"
 	app.Version = "1.0"
 	app.Compiled = time.Now()
 
@@ -52,7 +52,6 @@ func main() {
 			cli.StringFlag{
 				Name:        "url",
 				Usage:       "bitbucket server url ",
-				Value:       "https://bitbucket.simprocloud.com",
 				Destination: &serverUrl,
 			}),
 		altsrc.NewStringFlag(

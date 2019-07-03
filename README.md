@@ -80,7 +80,7 @@ a collection of bitbucket server cli tools
       --load path                     load .yaml config file from the path or from environment variable [$CPR_CONFIG_FILE_PATH]
       --username firstName.lastName   Bitbucket account username
       --password '######'             Bitbucket account password
-      --url value                     bitbucket server url (default: "https://bitbucket.simprocloud.com")
+      --url value                     Bitbucket server url
       --destBranch value              PR destination branch
       --title value                   PR title, branch name will be used if the title is not given
       --description value             PR description, could be empty
