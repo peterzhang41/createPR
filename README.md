@@ -10,7 +10,7 @@ a collection of bitbucket server cli tools
   [golang.org](https://golang.org/doc)
    ~~~
    go get github.com/peterzhang41/bitbucket-server-go-cli-tools
-   cd $GOPATH/github.com/peterzhang41/bitbucket-server-go-cli-tools && go install
+   cd $GOPATH/src/github.com/peterzhang41/bitbucket-server-go-cli-tools && go install
    ls -lh $GOPATH/bin
    ~~~
  cross platform 
@@ -79,7 +79,7 @@ a collection of bitbucket server cli tools
    ~~~
       --load path                     load .yaml config file from the path or from environment variable [$CPR_CONFIG_FILE_PATH]
       --username firstName.lastName   Bitbucket account username
-      --password '######'           Bitbucket account password
+      --password '######'             Bitbucket account password
       --url value                     bitbucket server url (default: "https://bitbucket.simprocloud.com")
       --destBranch value              PR destination branch
       --title value                   PR title, branch name will be used if the title is not given
