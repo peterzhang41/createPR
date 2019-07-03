@@ -7,8 +7,11 @@ a collection of bitbucket server cli tools
 [cpr v0.1-alpha](https://github.com/peterzhang41/bitbucket-server-go-cli-tools/releases)
     
 #### you could generate binary file by yourself. Requires Golang Environment
+  [golang.org](https://golang.org/doc)
    ~~~
-   go install
+   go get github.com/peterzhang41/bitbucket-server-go-cli-tools
+   cd $GOPATH/github.com/peterzhang41/bitbucket-server-go-cli-tools && go install
+   ls -lh $GOPATH/bin
    ~~~
  cross platform 
    ~~~
@@ -30,7 +33,7 @@ a collection of bitbucket server cli tools
     ~~~
     add one more line in  ~/.bashrc (modify other init file if you are not using bash)
      ~~~
-     export CPR_CONFIG_FILE_PATH="/home/cpr_config.yaml"
+     export CPR_CONFIG_FILE_PATH="$HOME/.config/cpr_config.yaml"
      ~~~
     save and execute below, or relaunch terminal
      ~~~
