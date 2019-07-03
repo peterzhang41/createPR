@@ -16,7 +16,8 @@ import (
 )
 
 func main() {
-
+	//Initialisation
+	//imported cli package https://github.com/urfave/cli to create the command line app
 	var username, password, serverUrl, destination, inputTitle, description string
 	app := cli.NewApp()
 	app.Name = "CPR"
@@ -26,6 +27,9 @@ func main() {
 	app.Email = "peter.zhang@simpro.co"
 	app.Version = "1.0"
 	app.Compiled = time.Now()
+
+	//since short name functionality is not compatible with input source
+	//used all full name at this moment
 	flags := []cli.Flag{
 		cli.StringFlag{
 			Name:   "load",
@@ -78,8 +82,9 @@ func main() {
 				Usage: "PR reviewer `firstName.lastName`, could be multiple",
 			}),
 	}
-	app.Action = func(c *cli.Context) error {
 
+	//Main execution part
+	app.Action = func(c *cli.Context) error {
 		var currentBranch string
 		var PRTitlePointer *string
 
@@ -87,17 +92,17 @@ func main() {
 			log.Fatal("No Password Given, Exit")
 		}
 
-		// inputTitle not given in cli then using current branch name instead for PR Title
+		// if title not given in cli then using current branch name instead for PR Title
 		if inputTitle == "" {
 			PRTitlePointer = &currentBranch
 		} else {
 			PRTitlePointer = &inputTitle
 		}
 
-		//reviewers
+		//get reviewers from flag
 		reviewers := c.StringSlice("reviewer")
 
-		//username
+		//get username from git email if it is empty
 		if username == "" {
 			out, err := exec.Command("git", "config", "--global", "user.email").Output()
 			logMessage := "No username found from [git config --global user.email] ;"
@@ -110,7 +115,7 @@ func main() {
 			log.Fatal("username has no dot symbol inside, ", username)
 		}
 
-		//project and repo
+		//get project and repo name from git remote.origin.url
 		out, err := exec.Command("git", "config", "--get", "remote.origin.url").Output()
 		logMessage := "remoteUrl is not found from [git config --get remote.origin.url] ;"
 		if err != nil {
@@ -124,7 +129,7 @@ func main() {
 		project := urlSplits[len(urlSplits)-2]
 		repo := strings.TrimSuffix(urlSplits[len(urlSplits)-1], ".git")
 
-		//currentBranch
+		//get current branch name
 		out, err = exec.Command("git", "rev-parse", "--abbrev-ref", "HEAD").Output()
 		logMessage = "currentBranch name is not found from [git rev-parse --abbrev-ref HEAD] ;"
 		if err != nil {
@@ -135,23 +140,22 @@ func main() {
 			log.Fatal(logMessage, currentBranch)
 		}
 
+		//Construct Bitbucket url with project and repo
 		url := serverUrl + "/rest/api/1.0/projects/" + project + "/repos/" + repo + "/pull-requests"
 
+		//Construct post json data
 		type user struct {
 			Name string `json:"name"`
 		}
-
 		type reviewerObject struct {
 			User user `json:"user"`
 		}
-
 		var reviewersArray []reviewerObject
 		for _, reviewer := range reviewers {
 			var r reviewerObject
 			r.User.Name = reviewer
 			reviewersArray = append(reviewersArray, r)
 		}
-
 		values := map[string]interface{}{
 			"title":       *PRTitlePointer,
 			"description": description,
@@ -161,6 +165,7 @@ func main() {
 		}
 		jsonValue, _ := json.Marshal(values)
 
+		//if has --debug in cli, it will print out all parameters
 		if c.Bool("debug") {
 			fmt.Println("Post Json - ", string(jsonValue))
 			fmt.Println("username - ", username)
@@ -175,14 +180,13 @@ func main() {
 			fmt.Println("url - ", url)
 		}
 
-		//post Bitbucket API
+		//Create new http request and post to Bitbucket API
 		req, err := http.NewRequest(http.MethodPost, url, bytes.NewBuffer(jsonValue))
 		if err != nil {
 			panic(err)
 		}
 		req.SetBasicAuth(username, password)
 		req.Header.Set("Content-Type", "application/json")
-
 		client := http.DefaultClient
 		resp, err := client.Do(req)
 		if err != nil {
@@ -194,7 +198,7 @@ func main() {
 		}
 		defer resp.Body.Close()
 
-		//parse result
+		//parse result, print out success message or the errors
 		fmt.Println("---------------------Return -----------------------")
 		if resp.StatusCode >= 200 && resp.StatusCode <= 299 {
 			var result map[string]interface{}
@@ -213,6 +217,7 @@ func main() {
 		return nil
 	}
 
+	//Read config from yaml file registered on load flag before app starts action function
 	app.Before = altsrc.InitInputSourceWithContext(flags, altsrc.NewYamlSourceFromFlagFunc("load"))
 	app.Flags = flags
 	err := app.Run(os.Args)
