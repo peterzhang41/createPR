@@ -48,7 +48,7 @@ a collection of bitbucket server cli tools
  
   * you can directly execute it , cpr will check $CPR_CONFIG_FILE_PATH
     ~~~
-      cpr
+    cpr
     ~~~
   * Or, execute it by loading settings from the path defined on the flag
       ~~~
