@@ -46,6 +46,8 @@ a collection of bitbucket server cli tools
  
  ### Example: 
  
+  After pushed your branch and you are in the branch path
+ 
   * you can directly execute it , cpr will check $CPR_CONFIG_FILE_PATH
     ~~~
     cpr
