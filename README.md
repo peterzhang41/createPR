@@ -1,7 +1,4 @@
-# Bitbucket Server Cli Tools
-a collection of bitbucket server cli tools
-
-## CPR - a tool for creating pull request in Bitbucket server
+# CPR - a tool for creating pull request in Bitbucket server
 
 ### Release
 [cpr v1.0](https://github.com/peterzhang41/bitbucket-server-go-cli-tools/releases)
